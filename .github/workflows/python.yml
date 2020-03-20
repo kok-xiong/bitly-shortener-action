@@ -13,7 +13,7 @@ jobs:
 
       - name: Self test
         id: selftest
-        uses: kok-xiong/bitly-shorter-action@master
+        uses: kok-xiong/bitly-shortener-action@master
         with:
           bitlyToken: ${{ secrets.BITLY_TOKEN }}
           longURL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}

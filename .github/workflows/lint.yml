@@ -14,7 +14,7 @@ jobs:
 
       - name: Self test
         id: selftest
-        uses: kok-xiong/bitly-shorter-action@master
+        uses: kok-xiong/bitly-shortener-action@master
         with:
           bitlyUsername: ${{ secrets.BITLY_USERNAME }}
           bitlyToken: ${{ secrets.BITLY_TOKEN }}
