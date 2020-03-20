@@ -1,4 +1,4 @@
-name: "Bitly Shortener Action"
+name: "Bitly Shortener"
 description: "Shorten URL using Bitly"
 author: "Kok Xiong"
 inputs:
