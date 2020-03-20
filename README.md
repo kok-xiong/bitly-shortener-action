@@ -2,7 +2,7 @@
 
 ## Usage
 
-Input long URL and Bitly developer token to output short URL.
+Input long URL and Bitly token to output short URL.
 
 ## Example usage (workflow in .github/workflows)
 
@@ -32,13 +32,13 @@ jobs:
 ```
 
 Other examples of workflows in .github/workflows:
-- https://github.com/kok-xiong/bitly-shortener-action/blob/master/.github/workflows/python.yml - Send Bitly shortened URL to Telegram.
+- https://github.com/kok-xiong/bitly-shortener-action/blob/master/.github/workflows/python.yml - Send Bitly shortened URL to Telegram (secrets.TELEGRAM_TO, secrets.TELEGRAM_TOKEN required).
 
 ## Inputs
 
 | Input                                             | Description                                        |
 |------------------------------------------------------|-----------------------------------------------|
-| `bitlyToken`  | Mandatory Bitly developer token (put in secrets of repository settings)    |
+| `bitlyToken`  | Mandatory Bitly developer token (put in secrets of repository settings as secrets.BITLY_TOKEN)    |
 | `longURL`  | Mandatory long URL (example: Github commit URL)    |
 
 ## Outputs
