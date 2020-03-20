@@ -22,7 +22,7 @@ jobs:
 
       - name: Bitly shortener
         id: shortener
-        uses: kok-xiong/test-actions@master
+        uses: kok-xiong/bitly-shortener-action@master
         with:
           bitlyToken: ${{ secrets.BITLY_TOKEN }}
           longURL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
