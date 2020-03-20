@@ -1,13 +1,24 @@
-name: "Python Container Action Template"
-description: "Get started with Python Container actions"
-author: "Jacob Tomlinson"
+name: "Bitly Shortener Action"
+description: "Shorten URL using Bitly"
+author: "Kok Xiong"
 inputs:
   myInput:
     description: "Input to use"
     default: "world"
+  longURL:
+    description: "Input to use"
+    default: "https://github.com"
+  bitlyToken:
+    description: "Input to use"
+    default: ""
 outputs:
   myOutput:
+    description: "Output from the action"
+  shortURL:
     description: "Output from the action"
 runs:
   using: "docker"
   image: "Dockerfile"
+branding:
+  icon: 'chevron-up'
+  color: 'purple'

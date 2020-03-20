@@ -1,0 +1,26 @@
+name: Lint
+on: [push]
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.7"
+
+      - name: Self test
+        id: selftest
+        uses: kok-xiong/test-actions@master
+        with:
+          bitlyUsername: ${{ secrets.BITLY_USERNAME }}
+          bitlyToken: ${{ secrets.BITLY_TOKEN }}
+          githubRef: ${{ github.commit.ref }}
+
+      - name: Lint
+        run: |
+          pip install flake8
+          flake8 main.py

@@ -1,18 +1,26 @@
-name: Lint
-on: [push, pull_request]
+name: Python
+on: [push]
 jobs:
-  lint:
-    name: Lint
+  build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
+
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
         with:
           python-version: "3.7"
 
-      - uses: actions/checkout@v1
+      - name: Self test
+        id: selftest
+        uses: kok-xiong/test-actions@master
+        with:
+          bitlyToken: ${{ secrets.BITLY_TOKEN }}
+          longURL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
 
-      - name: Lint
-        run: |
-          pip install flake8
-          flake8 main.py
+      - name: Telegram Notify
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          args: The ${{ github.event_name }} event triggered. URL - ${{ steps.selftest.outputs.shortURL }} / https://github.com/${{ github.repository }}/commit/${{ github.sha }}.
